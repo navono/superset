@@ -40,7 +40,7 @@ pillow==8.3.1
     # via -r requirements/development.in
 progress==1.6
     # via -r requirements/development.in
-psycopg2-binary==2.8.5
+psycopg2-binary==2.8.6
     # via -r requirements/development.in
 pure-sasl==0.6.2
     # via thrift-sasl
