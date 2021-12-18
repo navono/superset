@@ -30,7 +30,7 @@ const {
   WebpackManifestPlugin,
   getCompilerHooks,
 } = require('webpack-manifest-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+// const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const parsedArgs = require('yargs').argv;
 const getProxyConfig = require('./webpack.proxy-config');
 const packageConfig = require('./package');
@@ -118,12 +118,12 @@ const plugins = [
   }),
 
   // runs type checking on a separate process to speed up the build
-  new ForkTsCheckerWebpackPlugin({
-    eslint: {
-      files: './src/**/*.{ts,tsx,js,jsx}',
-      memoryLimit: 4096,
-    },
-  }),
+  // new ForkTsCheckerWebpackPlugin({
+  //   eslint: {
+  //     files: './src/**/*.{ts,tsx,js,jsx}',
+  //     memoryLimit: 4096,
+  //   },
+  // }),
 
   new CopyPlugin({
     patterns: [
@@ -376,6 +376,9 @@ const config = {
             options: {
               sourceMap: isDevMode,
               javascriptEnabled: true,
+              modifyVars: {
+                'root-entry-name': 'default',
+              }
             },
           },
         ],
